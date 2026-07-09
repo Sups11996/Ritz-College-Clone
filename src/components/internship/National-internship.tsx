@@ -3,7 +3,7 @@ import Hilton from '../../assets/hilton.webp';
 import Soaltee from '../../assets/soaltee.png';
 import marriott from '../../assets/mariott.jpg';
 import radisson from '../../assets/radisson.png';  
-import yak from '../../assets/yak And Yati.png';
+import yak from '../../assets/Yak And Yati.png';
 
 const countries = [
   { name: 'Crowne plaza', flag: crowne },
