@@ -86,4 +86,4 @@ src/
 
 ## Credits
 
-Built by students of Class 11A as a learning project. This is not an official website of Ritz College of Hotel Management.
+Built in intern team to practice react. This is not an official website of Ritz College of Hotel Management.
