@@ -9,11 +9,11 @@ function App() {
       {/* <ScrollToTop /> */}
       <Navbar />
 
-      {/* <main className="min-h-[calc(100vh-100px)] max-w-384 mx-auto">
+      <main className="min-h-[calc(100vh-100px)] max-w-384 mx-auto">
         <Outlet />
-      </main> */}
+      </main>
 
-        <Outlet />
+        {/* <Outlet /> */}
 
 
       <Footer />

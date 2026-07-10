@@ -1,15 +1,15 @@
 import type { ReactNode } from "react";
-import arunImg from "../../assets/arun.png";
-import ausikaImg from "../../assets/ausika.png";
-import bartenderImg from "../../assets/bartender.jpg";
-import ctevtImg from "../../assets/ctevt.jpg";
-import imaIndiaImg from "../../assets/ima-india.jpg";
-import kamantImg from "../../assets/kamant.png";
-import kausalImg from "../../assets/kausal.png";
-import puspaImg from "../../assets/puspa a.png";
-import receptionImg from "../../assets/reception.jpg";
-import santoshImg from "../../assets/santosh.png";
-import whiteshirtImg from "../../assets/whiteshirt.jpg";
+import arunImg from "../../assets/team/arun.png";
+import ausikaImg from "../../assets/team/ausika.png";
+import bartenderImg from "../../assets/team/bartender.jpg";
+import ctevtImg from "../../assets/team/ctevt.jpg";
+import imaIndiaImg from "../../assets/team/ima-india.jpg";
+import kamantImg from "../../assets/team/kamant.png";
+import kausalImg from "../../assets/team/kausal.png";
+import puspaImg from "../../assets/team/puspa a.png";
+import receptionImg from "../../assets/team/reception.jpg";
+import santoshImg from "../../assets/team/santosh.png";
+import whiteshirtImg from "../../assets/team/whiteshirt.jpg";
 // import heroImg from "../../assets/hero image 1.jpg";
 
 interface ServiceItem {
@@ -348,22 +348,24 @@ export default function Home() {
         <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
           Testimonials
         </h2>
-        <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:items-stretch lg:items-start">
           {TESTIMONIALS.map((t, index) => (
             <div
               key={index}
-              className={`w-full bg-[#3b54d6] rounded-2xl pt-4 px-4 shadow-md ${
-                index === 1 ? "md:mt-32 pb-4" : "md:mt-0 pb-2"
+              className={`w-full bg-[#1100AB] rounded-2xl pt-4 px-4 pb-4 shadow-md md:h-full lg:h-auto flex flex-col ${
+                index === 1 ? "lg:mt-[33%]" : ""
+              } ${
+                index === 2 ? "md:col-span-1 md:col-start-1 lg:col-span-1 lg:col-start-auto" : ""
               }`}
             >
               <div className="flex items-center justify-center gap-2 text-white font-semibold text-sm mb-8">
-                <span className="bg-[#f3f3f3] text-[#3b54d6] rounded-full p-1.5 flex items-center justify-center">
+                <span className="bg-[#f3f3f3] text-[#1100AB] rounded-full p-1.5 flex items-center justify-center">
                   <ThumbUpIcon />
                 </span>
                 Testimonial
               </div>
-              <div className="bg-[#f3f3f3] rounded-xl px-5 pb-4 pt-2 relative">
-                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-4 border-[#cfcaff] shadow-md mx-auto -mt-10 mb-2 shrink-0 bg-[#f3f3f3]">
+              <div className="bg-[#f3f3f3] rounded-xl px-5 pb-4 pt-2 relative flex-1 flex flex-col">
+                <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-4 border-[#cfcaff] shadow-md mx-auto -mt-8 mb-2 shrink-0 bg-[#f3f3f3]">
                   <img
                     src={t.image}
                     alt={t.name}
@@ -373,7 +375,7 @@ export default function Home() {
                 <div className="mb-2">
                   <StarRating rating={t.rating} id={index} />
                 </div>
-                <p className="text-[#1a1a1a] text-xs md:text-sm leading-relaxed text-justify mt-3 mb-4">
+                <p className="text-[#1a1a1a] text-xs md:text-sm leading-relaxed text-justify mt-3 mb-4 flex-1">
                   {t.quote}
                 </p>
                 <p className="text-center font-bold text-[#1a1a1a] text-sm">
@@ -408,17 +410,15 @@ export default function Home() {
         <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
           Physical Address
         </h2>
-        <div className="bg-[#f3f3f3] rounded-3xl border border-[#cfcaff] shadow-sm overflow-hidden w-full">
-          <div className="p-6 space-y-3">
-            <div className="h-96 w-full rounded-3xl overflow-hidden border-0 shadow-inner">
-              <iframe
-                title="Ritz College Location"
-                className="w-full h-full border-0"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d27038.031587023008!2d87.275084!3d26.665936000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d96708c609b%3A0x372941eafd76a16d!2sRitz%20college%20of%20Hotel%20Management!5e1!3m2!1sen!2sus!4v1783501505178!5m2!1sen!2sus"
-                allowFullScreen
-                loading="lazy"
-              ></iframe>
-            </div>
+        <div className="bg-white rounded-2xl md:rounded-3xl border border-[#e0e0e0] shadow-lg overflow-hidden w-full">
+          <div className="h-64 md:h-80 lg:h-96 w-full">
+            <iframe
+              title="Ritz College Location"
+              className="w-full h-full border-0"
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d27038.031587023008!2d87.275084!3d26.665936000000002!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ef6d96708c609b%3A0x372941eafd76a16d!2sRitz%20college%20of%20Hotel%20Management!5e1!3m2!1sen!2sus!4v1783501505178!5m2!1sen!2sus"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </section>
