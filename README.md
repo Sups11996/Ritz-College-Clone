@@ -1,6 +1,6 @@
 # Ritz College of Hotel Management — Website Clone
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Visit_Site-blue?style=for-the-badge)](https://ritzclone.vercel.app)
+> **🌐 Live Site:** [https://ritzclone.vercel.app](https://ritzclone.vercel.app)
 
 A frontend clone of the **Ritz College of Hotel Management** website, built with React, TypeScript, and Tailwind CSS. This is a student project that replicates the college's public-facing website.
 
