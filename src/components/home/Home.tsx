@@ -260,31 +260,31 @@ export default function Home() {
 
       {/* Our Team */}
       <section className="max-w-6xl mx-auto mb-20">
-        <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-6">
+        <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
           Our Team
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-2 gap-y-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 gap-y-10">
           {TEAM_MEMBERS.map((member, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center px-0.5"
+              className="flex flex-col items-center text-center"
             >
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-[3px] border-[#cfcaff] shadow-md mb-0"
+                className="w-32 h-32 md:w-36 md:h-36 rounded-full object-cover border-[3px] border-[#cfcaff] shadow-md mb-4"
               />
 
-              <h3 className="text-lg font-bold text-[#1a1a1a] leading-tight">
+              <h3 style={{ fontSize: "1.4rem", fontWeight: 700, color: "#1a1a1a", lineHeight: "1.3", marginBottom: "8px" }}>
                 {member.name}
               </h3>
 
-              <p className="text-[#1a1a1a] text-sm mb-1">
+              <p style={{ fontSize: "1.2rem", fontWeight: 600, color: "#1100AB", marginBottom: "10px", lineHeight: "1.35" }}>
                 {member.role}
               </p>
 
-              <p className="text-sm text-[#1a1a1a] leading-5 px-0.5">
+              <p style={{ fontSize: "1.1rem", color: "#1a1a1a", lineHeight: "1.6" }}>
                 {member.description}
               </p>
             </div>

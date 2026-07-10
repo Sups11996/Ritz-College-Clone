@@ -256,30 +256,31 @@ export default function Home() {
           Our Team
         </h2>
 
-        <div className="flex flex-wrap lg:flex-nowrap justify-center gap-y-6 md:gap-y-0 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-10" style={{ columnGap: 0 }}>
           {TEAM_MEMBERS.map((member, index) => (
             <div
               key={index}
-              className="w-1/2 sm:w-1/3 lg:w-47.5 lg:-mx-8 flex flex-col items-center text-center px-0 shrink-0"
+              className="flex flex-col items-center text-center"
+              style={{ marginLeft: index === 0 ? 0 : "-18px", zIndex: TEAM_MEMBERS.length - index, position: "relative" }}
             >
-              <div className="w-48 h-48 md:w-52 md:h-52 rounded-full overflow-hidden relative z-10 shrink-0 mb-0">
+              {/* Image — overlapping */}
+              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden shrink-0">
                 <img
                   src={member.image}
                   alt={member.name}
-                  className="w-full h-full object-cover max-w-none"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
 
-              <div className="w-full max-w-32.5 lg:max-w-30 flex flex-col items-center">
-                <h3 className="text-[10px] md:text-xs font-bold text-[#1a1a1a] leading-tight mt-4">
+              {/* Text — sits fully below, not clipped */}
+              <div className="mt-4 w-full px-2" style={{ zIndex: 10, position: "relative" }}>
+                <h3 className="text-[0.88rem] font-bold text-[#1a1a1a] leading-snug mb-1">
                   {member.name}
                 </h3>
-
-                <p className="text-[#1a1a1a] text-[9px] md:text-[10px] mt-1 mb-0">
+                <p className="text-[0.75rem] font-semibold text-[#1a1a1a] mb-2 leading-snug">
                   {member.role}
                 </p>
-
-                <p className="text-[9px] md:text-[10px] text-[#1a1a1a] leading-4 px-0.5 mt-5">
+                <p className="text-[0.72rem] text-[#1a1a1a] leading-[1.6]">
                   {member.description}
                 </p>
               </div>
