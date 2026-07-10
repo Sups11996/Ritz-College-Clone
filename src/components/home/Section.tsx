@@ -256,36 +256,90 @@ export default function Home() {
           Our Team
         </h2>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-y-10" style={{ columnGap: 0 }}>
-          {TEAM_MEMBERS.map((member, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center"
-              style={{ marginLeft: index === 0 ? 0 : "-18px", zIndex: TEAM_MEMBERS.length - index, position: "relative" }}
-            >
-              {/* Image — overlapping */}
-              <div className="w-36 h-36 md:w-44 md:h-44 rounded-full overflow-hidden shrink-0">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-full object-cover rounded-full"
-                />
-              </div>
+        {/* Team members — responsive layout */}
+        <div className="w-full">
+          {/* Large screens (lapl+): overlapping images row + text below */}
+          <div className="hidden lapl:flex lapl:flex-col lapl:items-center">
+            <div className="overflow-visible flex justify-center mb-8">
+              <div className="flex items-start">
+                {TEAM_MEMBERS.map((member, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center shrink-0"
+                    style={{
+                      marginLeft: index === 0 ? 0 : "-138px",
+                      position: "relative",
+                    }}
+                  >
+                    {/* Image */}
+                    <div 
+                      className="w-[335px] h-[335px] rounded-full overflow-hidden mb-6"
+                      style={{
+                        zIndex: TEAM_MEMBERS.length - index,
+                        position: "relative",
+                      }}
+                    >
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
 
-              {/* Text — sits fully below, not clipped */}
-              <div className="mt-4 w-full px-2" style={{ zIndex: 10, position: "relative" }}>
-                <h3 className="text-[0.88rem] font-bold text-[#1a1a1a] leading-snug mb-1">
+                    {/* Text */}
+                    <div 
+                      className="flex flex-col items-center text-center"
+                      style={{
+                        width: "200px",
+                        zIndex: 20,
+                        position: "relative",
+                      }}
+                    >
+                      <h3 className="text-[1rem] font-bold text-[#1a1a1a] leading-snug mb-1">
+                        {member.name}
+                      </h3>
+                      <p className="text-[0.85rem] font-semibold text-[#1a1a1a] mb-2 leading-snug">
+                        {member.role}
+                      </p>
+                      <p className="text-[0.8rem] text-[#1a1a1a] leading-[1.6]">
+                        {member.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Small/medium screens (below lapl): responsive card grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lapl:hidden">
+            {TEAM_MEMBERS.map((member, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl border border-[#e0e0e0] p-6 py-4 flex flex-col items-center text-center shadow-sm"
+              >
+                {/* Image */}
+                <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden mb-6">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* Text */}
+                <h3 className="text-lg font-bold text-[#1a1a1a] leading-snug mb-2">
                   {member.name}
                 </h3>
-                <p className="text-[0.75rem] font-semibold text-[#1a1a1a] mb-2 leading-snug">
+                <p className="text-sm font-semibold text-[#1a1a1a] mb-3 leading-snug">
                   {member.role}
                 </p>
-                <p className="text-[0.72rem] text-[#1a1a1a] leading-[1.6]">
+                <p className="text-sm text-[#1a1a1a] leading-relaxed">
                   {member.description}
                 </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
