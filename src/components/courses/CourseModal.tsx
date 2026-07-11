@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import type { Course } from "../../types/course";
 
 interface CourseModalProps {
@@ -6,11 +7,26 @@ interface CourseModalProps {
 }
 
 const CourseModal = ({ course, onClose }: CourseModalProps) => {
+  useEffect(() => {
+    if (course) {
+      // Disable scrolling when modal opens
+      document.body.style.overflow = "hidden";
+    } else {
+      // Re-enable scrolling when modal closes
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to ensure scroll is re-enabled
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [course]);
+
   if (!course) return null;
 
   return (
     <div
-      className="fixed inset-0 z-100 flex items-center justify-center bg-[#1100AB]/20 p-5 animate-fadeIn"
+      className="fixed inset-0 z-100 flex items-center justify-center bg-[#1100AB]/20 backdrop-blur-md p-5 animate-fadeIn"
       onClick={onClose}
     >
       <div
@@ -44,7 +60,7 @@ const CourseModal = ({ course, onClose }: CourseModalProps) => {
           <p className="mb-5 text-[13px] leading-7 text-[#1a1a1a]/80">
             {course.description}
           </p>
-          <button className="cursor-pointer rounded-lg border-none bg-[#1100AB] px-5.5 py-2.5 text-[13px] font-semibold text-[#f3f3f3] transition-colors duration-200 hover:bg-[#1300b9]">
+          <button className="w-full cursor-pointer rounded-lg border-none bg-[#1100AB] px-5.5 py-2.5 text-[13px] font-semibold text-[#f3f3f3] transition-colors duration-200 hover:bg-[#1300b9]">
             Enquire Now
           </button>
         </div>
