@@ -67,24 +67,22 @@ const Aboutus: React.FC = () => {
     <section className="w-full overflow-hidden bg-[#f3f3f3] text-[#1a1a1a]">
       <div className="w-full mx-auto px-6 md:px-12 lg:px-16 py-8 lg:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-          <div className="max-w-150">
-            <h1 className="text-2xl md:text-[2.5rem] lg:text-[3rem] font-semibold leading-[1.05] tracking-[-0.02em] text-[#111111]">
-              <span className="block">Step into the World of Hospitality</span>
-              <span className="block">
-                with <a
-                  href="https://ritzcollegeofhm.com.np/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-[#1100AB] hover:text-[#0d0088]"
-                >
-                  Ritz College
-                </a>
-              </span>
+          <div className="w-full">
+            <h1 className="text-2xl md:text-[2.5rem] lg:text-[3rem] font-semibold leading-tight tracking-[-0.02em] text-[#111111]">
+              Step into the World of Hospitality with{" "}
+              <a
+                href="https://ritzcollegeofhm.com.np/"
+                target="_blank"
+                rel="noreferrer"
+                className="text-[#1100AB] hover:text-[#0d0088]"
+              >
+                Ritz College
+              </a>
             </h1>
           </div>
 
-          <div className="lg:pt-0">
-            <p className="text-sm md:text-base text-[#1a1a1a] leading-7 max-w-140 text-justify">
+          <div className="lg:pt-0 w-full">
+            <p className="text-sm md:text-base text-[#1a1a1a] leading-7 text-justify w-full">
               Ritz College of Hotel Management offers specialized programs,
               including Diplomas in Hotel Management and Culinary Arts (Level
               III, IV, V) to shape the future leaders in hospitality. With a
@@ -99,7 +97,7 @@ const Aboutus: React.FC = () => {
 
       <div className="relative w-full">
         <div className="relative w-full mx-auto px-6 md:px-12 lg:px-16">
-          <div className="relative z-5 mx-auto overflow-hidden rounded-4xl border border-[#cfcaff] bg-[#f3f3f3] shadow-xl" style={{ marginBottom: '-12.5rem' }}>
+          <div className="relative z-5 mx-auto overflow-hidden rounded-4xl border border-[#f3f3f3] bg-[#f3f3f3] shadow-xl" style={{ marginBottom: '-12.5rem' }}>
             <img
               src={studentImg}
               alt="Ritz College"
@@ -116,7 +114,7 @@ const Aboutus: React.FC = () => {
             {stats.map((stat) => (
               <div
                 key={stat.label}
-                className="min-w-42.5 rounded-xl border border-[#cfcaff] bg-[#f3f3f3] px-5 py-4 text-center shadow-sm transition hover:border-[#1300b9]"
+                className="w-full max-w-[240px] h-[110px] rounded-xl border border-[#cfcaff] bg-[#f3f3f3] px-5 py-4 text-center shadow-sm transition hover:border-[#1300b9] flex flex-col items-center justify-center"
               >
                 <div className="mb-1 text-xs lapl:text-[15px] uppercase tracking-[0.18em] text-[#1100AB]">
                   {stat.label}
@@ -129,30 +127,30 @@ const Aboutus: React.FC = () => {
           </div>
         </div>
 
-        <div className="max-w-5xl mx-auto px-4 mt-12">
-          <h2 className="text-center text-2xl lapl:text-3xl font-bold text-[#1100AB] mb-8">
+        <div className="w-full mx-auto mt-12">
+          <h2 className="text-center text-2xl lapl:text-3xl font-bold text-[#1100AB] mb-8 px-6 md:px-12 lg:px-16">
             Our Students
           </h2>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lapl:gap-7">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lapl:gap-7 max-w-md sm:max-w-5xl mx-auto px-6">
             {students.map((student) => (
               <div
                 key={student.name}
-                className="mx-auto flex w-full max-w-140 lapl:max-w-150 items-center justify-between gap-4 rounded-full border border-[#1100AB] bg-[#f3f3f3] px-6 py-3 lapl:py-3.5 shadow-sm transition duration-500 hover:shadow-lg"
+                className="flex w-full items-center rounded-full border border-[#1100AB] bg-[#f3f3f3] px-4 md:px-6 py-3 lapl:py-3.5 shadow-sm transition duration-500 hover:shadow-lg overflow-hidden"
               >
-                <div className="flex items-center gap-4">
-                  <div className="relative h-16 w-16 lapl:h-18 lapl:w-18 rounded-full bg-[#1100AB] p-1">
+                <div className="flex items-center gap-3 md:gap-4 w-full">
+                  <div className="relative h-14 w-14 md:h-16 md:w-16 lapl:h-18 lapl:w-18 rounded-full bg-[#1100AB] p-1 shrink-0">
                     <img
                       src={student.image}
                       alt={student.name}
                       className="h-full w-full rounded-full object-cover border-2 border-white"
                     />
                   </div>
-                  <div className="min-w-0">
-                    <h3 className="truncate text-sm lapl:text-[0.9375rem] font-semibold text-[#1a1a1a]">
+                  <div className="flex-1 min-w-0 pr-2">
+                    <h3 className="text-sm lapl:text-[0.9375rem] font-semibold text-[#1a1a1a] leading-snug">
                       {student.name}
                     </h3>
-                    <p className="truncate text-xs lapl:text-[0.8125rem] text-[#1a1a1a] opacity-80">
+                    <p className="text-xs lapl:text-[0.8125rem] text-[#1a1a1a] opacity-80 leading-relaxed">
                       {student.role}
                     </p>
                   </div>
