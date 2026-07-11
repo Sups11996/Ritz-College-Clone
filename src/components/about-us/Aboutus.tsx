@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import studentImg from "../../assets/college events.webp";
 import oneImg from "../../assets/sunil.png";
 import twoImg from "../../assets/Numa.png";
@@ -67,7 +68,13 @@ const Aboutus: React.FC = () => {
     <section className="w-full overflow-hidden bg-[#f3f3f3] text-[#1a1a1a]">
       <div className="w-full mx-auto px-6 md:px-12 lg:px-16 py-8 lg:py-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-start">
-          <div className="w-full">
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="w-full"
+          >
             <h1 className="text-2xl md:text-[2.5rem] lg:text-[3rem] font-semibold leading-tight tracking-[-0.02em] text-[#111111]">
               Step into the World of Hospitality with{" "}
               <a
@@ -79,9 +86,15 @@ const Aboutus: React.FC = () => {
                 Ritz College
               </a>
             </h1>
-          </div>
+          </motion.div>
 
-          <div className="lg:pt-0 w-full">
+          <motion.div 
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:pt-0 w-full"
+          >
             <p className="text-sm md:text-base text-[#1a1a1a] leading-7 text-justify w-full">
               Ritz College of Hotel Management offers specialized programs,
               including Diplomas in Hotel Management and Culinary Arts (Level
@@ -91,12 +104,18 @@ const Aboutus: React.FC = () => {
               global hospitality, tourism, and culinary sectors. Empower your
               career with Ritz.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
       <div className="relative w-full">
-        <div className="relative w-full mx-auto px-6 md:px-12 lg:px-16">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="relative w-full mx-auto px-6 md:px-12 lg:px-16"
+        >
           <div className="relative z-5 mx-auto overflow-hidden rounded-4xl border border-[#f3f3f3] bg-[#f3f3f3] shadow-xl" style={{ marginBottom: '-12.5rem' }}>
             <img
               src={studentImg}
@@ -104,16 +123,21 @@ const Aboutus: React.FC = () => {
               className="w-full h-65 sm:h-80 md:h-95 lg:h-110 object-cover"
             />
           </div>
-        </div>
+        </motion.div>
         <div className="mt-6 h-58 bg-[#1100AB]"></div>
       </div>
 
       <div className="bg-[#f3f3f3] pt-10 pb-10 md:pb-15">
         <div className="w-full mx-auto px-6 md:px-12 lg:px-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 justify-items-center">
-            {stats.map((stat) => (
-              <div
+            {stats.map((stat, index) => (
+              <motion.div
                 key={stat.label}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
                 className="w-full max-w-[240px] h-[110px] rounded-xl border border-[#cfcaff] bg-[#f3f3f3] px-5 py-4 text-center shadow-sm transition hover:border-[#1300b9] flex flex-col items-center justify-center"
               >
                 <div className="mb-1 text-xs lapl:text-[15px] uppercase tracking-[0.18em] text-[#1100AB]">
@@ -122,20 +146,31 @@ const Aboutus: React.FC = () => {
                 <div className="text-2xl lapl:text-3xl font-bold text-[#1100AB]">
                   <CountUp target={stat.target} suffix={stat.suffix} decimals={stat.decimals} />
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
 
         <div className="w-full mx-auto mt-12">
-          <h2 className="text-center text-2xl lapl:text-3xl font-bold text-[#1100AB] mb-8 px-6 md:px-12 lg:px-16">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-center text-2xl lapl:text-3xl font-bold text-[#1100AB] mb-8 px-6 md:px-12 lg:px-16"
+          >
             Our Students
-          </h2>
+          </motion.h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lapl:gap-7 max-w-md sm:max-w-5xl mx-auto px-6">
-            {students.map((student) => (
-              <div
+            {students.map((student, index) => (
+              <motion.div
                 key={student.name}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
                 className="flex w-full items-center rounded-full border border-[#1100AB] bg-[#f3f3f3] px-4 md:px-6 py-3 lapl:py-3.5 shadow-sm transition duration-500 hover:shadow-lg overflow-hidden"
               >
                 <div className="flex items-center gap-3 md:gap-4 w-full">
@@ -155,7 +190,7 @@ const Aboutus: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
