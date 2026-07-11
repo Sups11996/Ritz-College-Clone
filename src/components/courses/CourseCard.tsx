@@ -1,15 +1,21 @@
+import { motion } from "framer-motion";
 import type { Course } from "../../types/course";
 
 // props for course cards
 interface CourseCardProps {
   course: Course;
   onSelect: (course: Course) => void;
+  index?: number;
 }
 
-const CourseCard = ({ course, onSelect }: CourseCardProps) => {
+const CourseCard = ({ course, onSelect, index = 0 }: CourseCardProps) => {
   return (
-    <div
-      className="group cursor-pointer rounded-[18px] border border-[#cfcaff] bg-[#f3f3f3] p-4 text-left shadow-[0_10px_30px_rgba(17,0,171,0.06)] transition-all duration-250 ease-out hover:-translate-y-1.5 hover:border-[#1100AB] hover:shadow-[0_14px_36px_rgba(19,0,185,0.14)]"
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      whileHover={{ y: -8, transition: { duration: 0.2 } }}
+      className="group cursor-pointer rounded-[18px] border border-[#cfcaff] bg-[#f3f3f3] p-4 text-left shadow-[0_10px_30px_rgba(17,0,171,0.06)] transition-all duration-250 ease-out hover:border-[#1100AB] hover:shadow-[0_14px_36px_rgba(19,0,185,0.14)] w-full"
       onClick={() => onSelect(course)}
     >
       <div className="relative mb-3">
@@ -31,7 +37,7 @@ const CourseCard = ({ course, onSelect }: CourseCardProps) => {
       <span className="inline-block text-[11px] font-semibold text-[#1300b9] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
         View Details →
       </span>
-    </div>
+    </motion.div>
   );
 };
 

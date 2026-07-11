@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import SearchFilter from "../components/courses/SearchFilter";
 import CourseCard from "../components/courses/CourseCard";
 import CourseModal from "../components/courses/CourseModal";
@@ -22,17 +23,22 @@ function CoursesPage() {
   }, [search, activeFilter]);
 
   return (
-    // background change to #f3f3f3
     <main className="flex-1 bg-[#f3f3f3] px-6 py-8 pb-15 md:px-12 lg:px-16 max-md:pt-5 max-md:pb-10">
       <div className="mx-auto w-full">
-        <div className="mb-6">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-6"
+        >
           <h2 className="text-3xl font-bold leading-tight text-[#1a1a1a] md:text-4xl">
             Our Courses
           </h2>
           <p className="mt-2 max-w-2xl text-sm leading-7 text-[#1a1a1a]/80 md:text-base">
             Build practical skills with industry-focused training designed for real career growth.
           </p>
-        </div>
+        </motion.div>
 
         <SearchFilter
           search={search}
@@ -44,18 +50,24 @@ function CoursesPage() {
 
         {filteredCourses.length > 0 ? (
           <div className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
-            {filteredCourses.map((course) => (
+            {filteredCourses.map((course, index) => (
               <CourseCard
                 key={course.id}
                 course={course}
                 onSelect={setSelectedCourse}
+                index={index}
               />
             ))}
           </div>
         ) : (
-          <div className="rounded-[20px] border border-[#cfcaff] bg-[#f3f3f3] py-15 text-center text-sm text-[#1a1a1a]/70 shadow-[0_10px_30px_rgba(17,0,171,0.05)]">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-[20px] border border-[#cfcaff] bg-[#f3f3f3] py-15 text-center text-sm text-[#1a1a1a]/70 shadow-[0_10px_30px_rgba(17,0,171,0.05)]"
+          >
             <p>No courses match your search.</p>
-          </div>
+          </motion.div>
         )}
       </div>
 
