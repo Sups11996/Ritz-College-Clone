@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import bartenderImg from "../../assets/team/bartender.jpg";
 import receptionImg from "../../assets/team/reception.jpg";
 import whiteshirtImg from "../../assets/team/whiteshirt.jpg";
@@ -71,13 +72,23 @@ function StarRating({ rating, id }: { rating: number; id: string | number }) {
 export default function TestimonialsSection() {
   return (
     <section className="w-full px-6 md:px-12 lg:px-16 mt-10 md:mt-20">
-      <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8"
+      >
         Testimonials
-      </h2>
+      </motion.h2>
       <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:items-stretch lg:items-start">
         {TESTIMONIALS.map((t, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.1 }}
             className={`w-full bg-[#1100AB] rounded-2xl pt-4 px-4 pb-4 shadow-md md:h-full lg:h-auto flex flex-col ${
               index === 1 ? "lg:mt-[33%]" : ""
             } ${
@@ -109,7 +120,7 @@ export default function TestimonialsSection() {
               </p>
               <p className="text-center text-[#1a1a1a] text-xs">{t.role}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,10 +1,24 @@
+import { motion } from "framer-motion";
+
 export default function MapSection() {
   return (
     <section className="w-full px-6 md:px-12 lg:px-16 mt-10 md:mt-20 pb-10 md:pb-15">
-      <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8"
+      >
         Physical Address
-      </h2>
-      <div className="bg-white rounded-2xl border-[#e0e0e0] md:p-3 shadow-lg overflow-hidden w-full">
+      </motion.h2>
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="bg-white rounded-2xl border-[#e0e0e0] md:p-3 shadow-lg overflow-hidden w-full"
+      >
         <div className="h-64 md:h-80 lg:h-96 w-full">
           <iframe
             title="Ritz College Location"
@@ -14,7 +28,7 @@ export default function MapSection() {
             loading="lazy"
           ></iframe>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

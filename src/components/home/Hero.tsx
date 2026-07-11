@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import type { Swiper as SwiperType } from "swiper";
@@ -38,26 +39,37 @@ const Hero = () => {
       </Swiper>
 
       {/* Left Button */}
-      <button
+      <motion.button
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         onClick={() => swiperRef.current?.slidePrev()}
         className="absolute left-5 top-1/2 z-58 -translate-y-1/2 rounded-full p-2 md:p-3 lg:p-4 shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
       >
         <FaChevronLeft className="text-[#333] text-xs md:text-sm lg:text-base" />
-      </button>
+      </motion.button>
 
       {/* Right Button */}
-      <button
+      <motion.button
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.3 }}
         onClick={() => swiperRef.current?.slideNext()}
         className="absolute right-5 top-1/2 z-58 -translate-y-1/2 rounded-full p-2 md:p-4 shadow-lg transition-all duration-300 hover:scale-110 cursor-pointer"
       >
         <FaChevronRight className="text-[#333] text-xs md:text-sm lg:text-base" />
-      </button>
+      </motion.button>
 
       <Link to={`/${PATHS.ABOUT}`}>
         {/* Bottom Button */}
-        <button className="absolute bottom-8 left-1/2 z-58 -translate-x-1/2 rounded-lg bg-[#1100AB] px-5 py-2 md:px-8 md:py-3 text-[#f3f3f3] shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#1300b9] cursor-pointer text-sm md:text-base">
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="absolute bottom-8 left-1/2 z-58 -translate-x-1/2 rounded-lg bg-[#1100AB] px-5 py-2 md:px-8 md:py-3 text-[#f3f3f3] shadow-lg transition-all duration-300 hover:scale-105 hover:bg-[#1300b9] cursor-pointer text-sm md:text-base"
+        >
           Read More
-        </button>
+        </motion.button>
       </Link>
     </section>
   );

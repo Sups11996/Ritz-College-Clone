@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import arunImg from "../../assets/team/arun.png";
 import ausikaImg from "../../assets/team/ausika.png";
 import kamantImg from "../../assets/team/kamant.png";
@@ -53,19 +54,35 @@ const TEAM_MEMBERS = [
 export default function TeamSection() {
   return (
     <section className="w-full px-6 md:px-12 lg:px-16 mt-10 md:mt-20">
-      <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8"
+      >
         Our Team
-      </h2>
+      </motion.h2>
 
       {/* Team members — responsive layout */}
       <div className="w-full">
         {/* Large screens (lapl+): overlapping images row + text below */}
-        <div className="hidden lapl:flex lapl:flex-col lapl:items-center">
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="hidden lapl:flex lapl:flex-col lapl:items-center"
+        >
           <div className="overflow-visible flex justify-center mb-8">
             <div className="flex items-start">
               {TEAM_MEMBERS.map((member, index) => (
-                <div
+                <motion.div
                   key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   className="flex flex-col items-center shrink-0"
                   style={{
                     marginLeft: index === 0 ? 0 : "-138px",
@@ -106,17 +123,22 @@ export default function TeamSection() {
                       {member.description}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* Small/medium screens (below lapl): responsive card grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lapl:hidden">
           {TEAM_MEMBERS.map((member, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
               className="bg-white rounded-2xl border border-[#e0e0e0] p-6 py-4 flex flex-col items-center text-center shadow-sm"
             >
               {/* Image */}
@@ -138,7 +160,7 @@ export default function TeamSection() {
               <p className="text-sm text-[#1a1a1a] leading-relaxed">
                 {member.description}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
