@@ -1,3 +1,5 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../../assets/img1-min.jpg";
 import img2 from "../../assets/img2-min.jpg";
 import img3 from "../../assets/img3-min.jpg";
@@ -34,18 +36,17 @@ const images = [
   img16,
 ];
 
-// Heights for each image - designed so columns end at same line
-// 4 columns, 4 rows = 16 images
-// Col1: 160+208+192+160 = 720, Col2: 192+176+208+144 = 720
-// Col3: 176+192+160+192 = 720, Col4: 208+160+176+176 = 720
+// Random varied heights for masonry effect - much more variety
 const imageHeights = [
-  "h-40 lapl:h-48", "h-48 lapl:h-56", "h-44 lapl:h-52", "h-52 lapl:h-60",
-  "h-52 lapl:h-60", "h-44 lapl:h-52", "h-48 lapl:h-56", "h-40 lapl:h-48",
-  "h-48 lapl:h-56", "h-52 lapl:h-60", "h-40 lapl:h-48", "h-44 lapl:h-52",
-  "h-40 lapl:h-48", "h-36 lapl:h-44", "h-48 lapl:h-56", "h-44 lapl:h-52",
+  "h-44", "h-72", "h-56", "h-80",
+  "h-64", "h-48", "h-88", "h-60",
+  "h-68", "h-52", "h-76", "h-92",
+  "h-56", "h-84", "h-60", "h-52",
 ];
 
 function Gallery() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   // Split into 4 columns manually
   const col1 = images.filter((_, i) => i % 4 === 0);
   const col2 = images.filter((_, i) => i % 4 === 1);
@@ -53,41 +54,111 @@ function Gallery() {
   const col4 = images.filter((_, i) => i % 4 === 3);
   const cols = [col1, col2, col3, col4];
 
+  // Varied heights for each column - much more random and varied
   const colHeights = [
-    ["h-40 lapl:h-56", "h-52 lapl:h-68", "h-48 lapl:h-64", "h-40 lapl:h-56"],
-    ["h-48 lapl:h-64", "h-44 lapl:h-60", "h-52 lapl:h-68", "h-36 lapl:h-52"],
-    ["h-44 lapl:h-60", "h-48 lapl:h-64", "h-40 lapl:h-56", "h-48 lapl:h-64"],
-    ["h-52 lapl:h-68", "h-40 lapl:h-56", "h-44 lapl:h-60", "h-44 lapl:h-60"],
+    ["h-96", "h-80", "h-56", "h-64"], // First image is portrait - taller
+    ["h-72", "h-52", "h-96", "h-60"],
+    ["h-60", "h-68", "h-48", "h-88"],
+    ["h-52", "h-92", "h-64", "h-56"],
   ];
 
   return (
-    <div className="px-6 mobl:px-16 md:px-32 lg:px-44 mt-5 md:mt-10 pb-10 md:pb-15">
-      <h2 className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8">
+    <>
+      <div className="px-6 md:px-12 lg:px-32 mt-5 md:mt-10 pb-10 md:pb-15">
+      <motion.h2 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="text-xl md:text-2xl font-bold text-[#1100AB] border-b border-[#cfcaff] pb-3 mb-8"
+      >
         Gallery
-      </h2>
-      <div className="hidden md:flex gap-4">
+      </motion.h2>
+      
+      {/* Desktop: 4 columns with aligned tops */}
+      <div className="hidden md:flex gap-4 items-start">
         {cols.map((col, colIdx) => (
           <div key={colIdx} className="flex flex-col gap-4 flex-1">
             {col.map((img, rowIdx) => (
-              <div key={img} className="overflow-hidden rounded-xl cursor-pointer hover:scale-105 transition-all duration-500">
+              <motion.div 
+                key={img}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.5, delay: (colIdx * 0.1) + (rowIdx * 0.1) }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2, ease: "easeInOut" } }}
+                onClick={() => setSelectedImage(img)}
+                className="overflow-hidden rounded-xl cursor-pointer"
+              >
                 <img
                   src={img}
+                  alt={`Gallery image ${colIdx * 4 + rowIdx + 1}`}
                   className={`w-full object-cover rounded-xl ${colHeights[colIdx][rowIdx]}`}
                 />
-              </div>
+              </motion.div>
             ))}
           </div>
         ))}
       </div>
-      {/* Mobile: 2 columns */}
+      
+      {/* Mobile: 2 columns masonry */}
       <div className="md:hidden columns-2 gap-4">
         {images.map((img, index) => (
-          <div key={img} className="break-inside-avoid mb-4 overflow-hidden rounded-xl">
-            <img src={img} className={`w-full object-cover rounded-xl ${imageHeights[index % imageHeights.length]}`} />
-          </div>
+          <motion.div 
+            key={img}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.5, delay: index * 0.05 }}
+            whileHover={{ scale: 1.02, transition: { duration: 0.2, ease: "easeInOut" } }}
+            onClick={() => setSelectedImage(img)}
+            className="break-inside-avoid mb-4 overflow-hidden rounded-xl cursor-pointer"
+          >
+            <img 
+              src={img} 
+              alt={`Gallery image ${index + 1}`}
+              className={`w-full object-cover rounded-xl ${imageHeights[index % imageHeights.length]}`} 
+            />
+          </motion.div>
         ))}
       </div>
     </div>
+
+    {/* Image Modal */}
+    <AnimatePresence>
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="relative w-auto h-[80vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute -right-2 -top-2 md:right-4 md:top-4 z-10 h-10 w-10 cursor-pointer rounded-full border-none bg-white text-lg text-[#1a1a1a] transition-colors duration-200 hover:bg-gray-200 flex items-center justify-center"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✕
+            </button>
+            <img
+              src={selectedImage}
+              alt="Gallery preview"
+              className="w-auto h-full object-contain rounded-xl mx-auto"
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </>
   );
 }
 
