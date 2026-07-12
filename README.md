@@ -88,4 +88,4 @@ src/
 
 ## Credits
 
-Initially developed by an intern team to practice React. Later polished and enhanced with improved UI/UX and animations. This is not an official website of Ritz College of Hotel Management.
+Initially developed by an intern team to practice React. Later polished and enhanced with improved UI/UX and animations (by me). This is not an official website of Ritz College of Hotel Management.
