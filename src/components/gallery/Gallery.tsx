@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../../assets/img1-min.jpg";
 import img2 from "../../assets/img2-min.jpg";
@@ -46,6 +46,19 @@ const imageHeights = [
 
 function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  // Disable background scroll when modal is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [selectedImage]);
 
   // Split into 4 columns manually
   const col1 = images.filter((_, i) => i % 4 === 0);
