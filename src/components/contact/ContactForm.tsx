@@ -54,6 +54,7 @@ export default function ContactForm() {
         <input
           type="text"
           placeholder="Enter Your Full Name"
+          maxLength={25}
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           className="w-full px-3 py-1.5 border border-[#ededed] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1300b9] bg-white text-sm"
@@ -74,6 +75,7 @@ export default function ContactForm() {
         <input
           type="text"
           placeholder="Enter Your Address"
+          maxLength={50}
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           className="w-full px-3 py-1.5 border border-[#ededed] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1300b9] bg-white text-sm"
@@ -83,6 +85,7 @@ export default function ContactForm() {
         <input
           type="email"
           placeholder="jane@gmail.com"
+          maxLength={50}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-3 py-1.5 border border-[#ededed] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1300b9] bg-white text-sm"
@@ -92,6 +95,7 @@ export default function ContactForm() {
         <textarea
           placeholder="Message"
           rows={3}
+          maxLength={250}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           className="w-full px-3 py-1.5 border border-[#ededed] rounded-md focus:outline-none focus:ring-2 focus:ring-[#1300b9] resize-none bg-white text-sm"
