@@ -85,6 +85,17 @@ src/
 - This is a **frontend-only** project — there is no backend or database.
 - All content (text, images, team info) is static and for demonstration purposes only.
 - The contact form does not send real emails.
+- Built with accessibility in mind using Radix UI primitives.
+- Fully responsive design tested across mobile, tablet, and desktop viewports.
+
+## Features
+
+- 🎨 **Modern UI/UX** — Clean, professional design with smooth animations
+- 📱 **Fully Responsive** — Works seamlessly on all screen sizes
+- ♿ **Accessible** — Built with semantic HTML and ARIA attributes
+- ⚡ **Fast** — Optimized bundle size and lazy loading
+- 🎭 **Animated** — Smooth scroll animations and transitions using Framer Motion
+- 🔍 **Searchable** — Course catalog with real-time search and filters
 
 ## Credits
 
