@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+
+// Import all gallery images (optimized versions)
 import img1 from "../../assets/img1-min.jpg";
 import img2 from "../../assets/img2-min.jpg";
 import img3 from "../../assets/img3-min.jpg";
@@ -36,6 +38,10 @@ const images = [
   img16,
 ];
 
+/**
+ * Random varied heights for masonry-style layout
+ * Creates visual interest with different image sizes
+ */
 // Random varied heights for masonry effect - much more variety
 const imageHeights = [
   "h-44", "h-72", "h-56", "h-80",
@@ -44,6 +50,22 @@ const imageHeights = [
   "h-56", "h-84", "h-60", "h-52",
 ];
 
+/**
+ * Gallery Component
+ * 
+ * Displays a masonry-style photo gallery with:
+ * - Random varied image heights for visual interest
+ * - 4-column layout on desktop, 2-column on mobile
+ * - Click to open fullscreen modal
+ * - Smooth scroll animations
+ * - Background scroll lock when modal is open
+ * 
+ * Features:
+ * - Responsive masonry layout
+ * - Hover effects with instant response
+ * - Keyboard navigation (ESC to close modal)
+ * - Portrait and landscape image support
+ */
 function Gallery() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
