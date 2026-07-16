@@ -6,6 +6,17 @@ import greece from "../../assets/greece.png";
 import india from "../../assets/india.png";
 import { motion } from "framer-motion";
 
+/**
+ * International Internship Component
+ * 
+ * Displays available international internship destinations with:
+ * - Country flag images in circular containers
+ * - Responsive grid layout (2 columns mobile, 3 desktop)
+ * - Hover scale effect on images
+ * - Staggered scroll animations
+ * 
+ * Countries featured: France, Turkey, China, Hong Kong, Greece, India
+ */
 const countries = [
   { name: "France", flag: france },
   { name: "Turkey", flag: turkey },

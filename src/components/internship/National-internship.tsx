@@ -6,6 +6,17 @@ import radisson from '../../assets/radisson.png';
 import yak from '../../assets/Yak And Yati.png';
 import { motion } from "framer-motion";
 
+/**
+ * National Internship Component
+ * 
+ * Displays partner hotels and resorts for national internships:
+ * - Premium hotel brand logos in circular containers
+ * - Responsive grid layout (2 columns mobile, 3 desktop)
+ * - Hover scale effect on logos
+ * - Staggered scroll animations
+ * 
+ * Partners featured: Crowne Plaza, Hilton, Soaltee, Marriott, Radisson, Yak & Yeti
+ */
 const countries = [
   { name: 'Crowne plaza', flag: crowne },
   { name: 'Hilton', flag: Hilton },
