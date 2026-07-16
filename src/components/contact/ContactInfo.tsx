@@ -1,5 +1,18 @@
 import { motion } from "framer-motion";
 
+/**
+ * ContactInfo Component
+ * 
+ * Displays college contact information in a decorative panel with:
+ * - Blue background bar
+ * - Black overlay card with contact details
+ * - Location, email, and phone information with icons
+ * 
+ * Features:
+ * - Hidden on mobile, visible on tablet (md) and above
+ * - Smooth slide-in animation from right
+ * - Vertically centered alignment with contact form
+ */
 export default function ContactInfo() {
   return (
     <motion.div
