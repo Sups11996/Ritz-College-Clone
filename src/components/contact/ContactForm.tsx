@@ -1,6 +1,22 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+/**
+ * ContactForm Component
+ * 
+ * Renders a contact form with validation for:
+ * - Full name (max 25 characters)
+ * - Phone number (Nepali format: 97/98 + 8 digits)
+ * - Address (max 50 characters)
+ * - Email (max 50 characters with basic validation)
+ * - Message (max 250 characters)
+ * 
+ * Features:
+ * - Real-time validation on submit
+ * - Error message display
+ * - Form reset after successful validation
+ * - Smooth scroll animations via Framer Motion
+ */
 export default function ContactForm() {
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
@@ -9,22 +25,30 @@ export default function ContactForm() {
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
 
+  /**
+   * Validates and handles form submission
+   * Validates: required fields, email format, and Nepali phone number format
+   */
   const handleSubmit = () => {
+    // Check if all fields are filled
     if (!fullName || !phone || !address || !email || !message) {
       setError("Please fill in all fields");
       return;
     }
 
+    // Basic email validation
     if (!email.includes("@") || !email.includes(".")) {
       setError("Please enter a valid email");
       return;
     }
 
+    // Nepali phone number validation (must start with 97 or 98 and be 10 digits total)
     if (!/^(97|98)\d{8}$/.test(phone)) {
       setError("Phone number must be exactly 10 digits and start with 97 or 98");
       return;
     }
 
+    // Clear error and reset form on successful validation
     setError("");
     setFullName("");
     setPhone("");
