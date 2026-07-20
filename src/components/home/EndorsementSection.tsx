@@ -2,6 +2,18 @@ import { motion } from "framer-motion";
 import ctevtImg from "../../assets/team/ctevt.jpg";
 import imaIndiaImg from "../../assets/team/ima-india.jpg";
 
+/**
+ * EndorsementSection Component
+ * 
+ * Displays institutional endorsement partners with:
+ * - Grid layout (1 column mobile, 2 columns tablet+)
+ * - Partner logos with hover effects
+ * - Scroll animations with staggered delays
+ * - Grayscale to color transition on hover
+ * 
+ * Partners: IAMA India, CTEVT Nepal
+ */
+
 const ENDORSEMENT_PARTNERS = [
   {
     name: "IAMA India",
