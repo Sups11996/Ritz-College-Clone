@@ -1,5 +1,6 @@
 {
   "name": "ritz-college",
+  "description": "Ritz College of Hotel Management website - Modern React-based frontend showcasing college programs, facilities, and team",
   "private": true,
   "version": "0.0.0",
   "type": "module",
