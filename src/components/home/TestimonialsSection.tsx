@@ -3,6 +3,18 @@ import bartenderImg from "../../assets/team/bartender.jpg";
 import receptionImg from "../../assets/team/reception.jpg";
 import whiteshirtImg from "../../assets/team/whiteshirt.jpg";
 
+/**
+ * TestimonialsSection Component
+ * 
+ * Displays student testimonials with:
+ * - Grid layout (1 column mobile, 3 columns desktop)
+ * - Star ratings and student photos
+ * - Scroll animations with staggered delays
+ * - Hover effects on testimonial cards
+ * 
+ * Features testimonials from current students sharing their experiences
+ */
+
 interface TestimonialItem {
   name: string;
   role: string;
