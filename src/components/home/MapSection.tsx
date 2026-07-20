@@ -1,5 +1,17 @@
 import { motion } from "framer-motion";
 
+/**
+ * MapSection Component
+ * 
+ * Displays embedded Google Maps location with:
+ * - Responsive iframe for college location
+ * - Scroll animation on section load
+ * - Full-width map with proper aspect ratio
+ * - Allows interaction with map (zoom, pan)
+ * 
+ * Location: Ritz College of Hotel Management, Itahari, Nepal
+ */
+
 export default function MapSection() {
   return (
     <section className="w-full px-6 md:px-12 lg:px-16 mt-10 md:mt-20 pb-10 md:pb-15">
