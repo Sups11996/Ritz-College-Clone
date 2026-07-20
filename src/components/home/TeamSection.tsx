@@ -6,6 +6,18 @@ import kausalImg from "../../assets/team/kausal.png";
 import puspaImg from "../../assets/team/puspa a.png";
 import santoshImg from "../../assets/team/santosh.png";
 
+/**
+ * TeamSection Component
+ * 
+ * Displays leadership and management team with:
+ * - Grid layout (1 column mobile, 2 tablet, 3 desktop)
+ * - Profile photos with name, role, and description
+ * - Hover effects with scale and shadow
+ * - Scroll animations with staggered delays
+ * 
+ * Team includes: CEO, Operation Manager, Coordinator, and other key staff
+ */
+
 const TEAM_MEMBERS = [
   {
     name: "Mr. Puspa Adhikari",
