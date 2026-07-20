@@ -58,6 +58,26 @@ npm run preview   # Preview the production build locally
 npm run lint      # Run ESLint
 ```
 
+## Deployment
+
+This project is configured for easy deployment on modern hosting platforms:
+
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Import the repository in Vercel
+3. Vercel will auto-detect Vite and deploy
+
+### Netlify
+1. Build the project: `npm run build`
+2. Deploy the `/dist` folder to Netlify
+3. Configure redirects for client-side routing
+
+### Build Output
+The production build outputs to `/dist` directory and includes:
+- Optimized and minified JavaScript bundles
+- Compressed CSS files
+- Optimized images and assets
+
 ## Project Structure
 
 ```
