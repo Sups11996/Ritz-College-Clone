@@ -9,6 +9,19 @@ import fiveImg from "../../assets/Sucess.png";
 import sixImg from "../../assets/Bishal.png";
 import CountUp from "./CountUp";
 
+/**
+ * Aboutus Component
+ * 
+ * Main about page component with:
+ * - College description and mission statement
+ * - Statistical counters (students, years, courses, staff)
+ * - Student testimonials grid
+ * - Scroll animations throughout
+ * - Responsive layout for all screen sizes
+ * 
+ * Showcases college history, achievements, and student experiences
+ */
+
 interface Student {
   name: string;
   role: string;
