@@ -1,5 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 
+/**
+ * CountUp Component
+ * 
+ * Animated counter that counts from 0 to target value:
+ * - Smooth animation with customizable duration
+ * - Starts counting when element enters viewport (IntersectionObserver)
+ * - Supports decimal places and custom suffixes
+ * - Uses requestAnimationFrame for smooth 60fps performance
+ * 
+ * Props:
+ * - target: Final number to count to
+ * - duration: Animation duration in milliseconds (default: 1500)
+ * - decimals: Number of decimal places (default: 0)
+ * - suffix: Optional text to append (e.g., "+", "%")
+ */
+
 interface CountUpProps {
   target: number;
   suffix?: string;
