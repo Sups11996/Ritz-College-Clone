@@ -10,6 +10,19 @@ import {images} from "../../data/home/heroImages"
 import "swiper/css";
 import { Link } from "react-router-dom";
 
+/**
+ * Hero Component
+ * 
+ * Homepage hero section with:
+ * - Full-width image carousel/slider
+ * - Autoplay with smooth transitions
+ * - Navigation arrows for manual control
+ * - Multiple hero images showcasing college facilities
+ * - Call-to-action button overlayed on images
+ * 
+ * Uses Swiper.js for smooth carousel functionality
+ */
+
 const Hero = () => {
   const swiperRef = useRef<SwiperType | null>(null);
 
